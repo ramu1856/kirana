@@ -44,7 +44,7 @@ services:
         sync: false
       - key: SMTP_PASS
         sync: false
-    disks:
-      - name: life-timeline-data
-        mountPath: /opt/render/project-data
-        sizeGB: 1
+    disk:
+      name: life-timeline-data
+      mountPath: /opt/render/project-data
+      sizeGB: 1
