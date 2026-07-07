@@ -215,7 +215,7 @@ test("valid record creation succeeds for an authenticated user", async function(
         body: {
             category: "Project",
             subtype: "Web App",
-            title: "Kirana Portal",
+            title: "Life Timeline Portal",
             organization: "Personal Build",
             startDate: "2026-07-07",
             endDate: "",
@@ -224,14 +224,14 @@ test("valid record creation succeeds for an authenticated user", async function(
             reminderDate: "2026-08-01",
             documentName: "Spec Notes",
             documentLink: "Drive: spec.pdf",
-            tags: ["kirana", "mvp"],
+            tags: ["timeline", "mvp"],
             description: "Building the first usable version."
         }
     });
 
     assert.equal(createResponse.status, 200);
     assert.equal(createResponse.body.record.category, "Project");
-    assert.equal(createResponse.body.record.title, "Kirana Portal");
+    assert.equal(createResponse.body.record.title, "Life Timeline Portal");
 
     const listResponse = await request("/api/records", {
         headers: {
@@ -242,7 +242,7 @@ test("valid record creation succeeds for an authenticated user", async function(
     assert.equal(listResponse.status, 200);
     assert.equal(Array.isArray(listResponse.body.records), true);
     assert.equal(listResponse.body.records.some(function(record) {
-        return record.title === "Kirana Portal";
+        return record.title === "Life Timeline Portal";
     }), true);
 });
 

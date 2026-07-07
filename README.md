@@ -63,13 +63,13 @@ It returns a small JSON response when the app is up.
 
 Create a local `.env` in your shell environment or set these before starting:
 
-- `HOST` - server host, default `127.0.0.1`
+- `HOST` - server host, default `0.0.0.0`
 - `PORT` - server port, default `4173`
 - `DB_PATH` - SQLite file path, default `./data/app.sqlite`
 - `LEGACY_DB_PATH` - optional JSON import source, default `./db.json`
 - `UPLOAD_DIR` - local upload directory, default `./uploads`
 - `MAX_UPLOAD_BYTES` - per-file upload limit in bytes, default `2097152`
-- `APP_BASE_URL` - public app URL used in reset links, default `http://127.0.0.1:4173`
+- `APP_BASE_URL` - public app URL used in reset links, default `http://0.0.0.0:4173`
 - `EMAIL_MODE` - email delivery mode, default `dev-log`
 - `EMAIL_OUTBOX_DIR` - local folder for saved email previews, default `./data/email-outbox`
 - `EMAIL_FROM` - sender address for outgoing emails
@@ -101,7 +101,7 @@ Use the full step-by-step checklist here:
 ### Important Production Variables
 
 - `NODE_ENV=production`
-- `APP_BASE_URL=https://your-domain.onrender.com`
+- `APP_BASE_URL=https://life-timeline-tracker.onrender.com`
 - `DB_PATH=/opt/render/project-data/app.sqlite`
 - `UPLOAD_DIR=/opt/render/project-data/uploads`
 - `EMAIL_OUTBOX_DIR=/opt/render/project-data/email-outbox`
@@ -127,7 +127,7 @@ This repo now includes:
 - `site.webmanifest`
 - base Open Graph and Twitter metadata in `index.html`
 
-Before public launch, replace `https://your-app.onrender.com` inside `sitemap.xml` and `robots.txt` with the final live domain.
+Before public launch, replace the placeholder live domain inside `sitemap.xml` and `robots.txt` with the final live domain if it changes again.
 
 ## Current Architecture
 
