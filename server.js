@@ -10,7 +10,9 @@ const { createRecordService } = require("./services/record-service");
 const { createEmailService } = require("./services/email-service");
 const { createUploadService } = require("./services/upload-service");
 
-const host = process.env.HOST || "0.0.0.0";
+const host = process.env.HOST && process.env.HOST !== "127.0.0.1"
+    ? process.env.HOST
+    : "0.0.0.0";
 const port = Number(process.env.PORT) || 4173;
 const root = __dirname;
 const dbPath = process.env.DB_PATH ? path.resolve(process.env.DB_PATH) : path.join(root, "data", "app.sqlite");
@@ -97,7 +99,7 @@ const server = http.createServer(async function(req, res) {
     }
 });
 
-server.listen(port, host, function() {
+server.listen(port, function() {
     console.log(`Life Timeline Tracker is running at http://${host}:${port}`);
 });
 
