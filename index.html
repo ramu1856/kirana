@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Life Timeline Tracker organizes education, work, visa, projects, certifications, documents, and personal milestones in one secure timeline.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0f766e">
+    <meta property="og:title" content="Life Timeline Tracker">
+    <meta property="og:description" content="Track education, work, visa, project, certification, and personal milestones in one searchable timeline.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Life Timeline Tracker">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Life Timeline Tracker">
+    <meta name="twitter:description" content="Track education, work, visa, project, certification, and personal milestones in one searchable timeline.">
+    <title>Life Timeline Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+    <div class="app-shell">
+        <header class="site-header">
+            <a class="brand" href="#top">
+                <span class="brand-mark">LT</span>
+                <span>Life Timeline Tracker</span>
+            </a>
+            <nav class="site-nav">
+                <a href="#auth">Access</a>
+                <a href="#dashboard">Dashboard</a>
+                <a href="#add-record">Add Record</a>
+                <a href="#timeline">Timeline</a>
+                <a href="#reports">Reports</a>
+            </nav>
+            <div class="header-actions">
+                <div id="user-badge" class="user-badge hidden"></div>
+                <button id="load-sample-btn" class="ghost-btn hidden" type="button">Load Demo Data</button>
+                <button id="reset-data-btn" class="ghost-btn hidden" type="button">Reset My Data</button>
+                <button id="logout-btn" class="primary-btn hidden" type="button">Logout</button>
+            </div>
+        </header>
+
+        <main id="top">
+            <section class="hero">
+                <div class="hero-copy">
+                    <p class="eyebrow">Complete life record management</p>
+                    <h1>Store your full journey in one timeline and use it whenever life asks for proof.</h1>
+                    <p class="hero-text">
+                        This multi-user version lets each person create an account and manage education, jobs,
+                        projects, certifications, visa history, reminders, and documents in one searchable place.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="primary-btn" href="#auth">Create Account</a>
+                        <a class="ghost-btn" href="#reports">View Reports</a>
+                    </div>
+                    <ul class="hero-points">
+                        <li>Track all visa types, education stages, jobs, projects, and personal events</li>
+                        <li>Save documents and reminders with each record</li>
+                        <li>Generate a clean verification summary instantly</li>
+                    </ul>
+                </div>
+
+                <div class="hero-panel">
+                    <article class="glass-card">
+                        <p class="card-label">What this prototype includes</p>
+                        <div class="mini-stats">
+                            <div>
+                                <strong id="hero-total-records">0</strong>
+                                <span>Total Records</span>
+                            </div>
+                            <div>
+                                <strong id="hero-total-docs">0</strong>
+                                <span>Documents</span>
+                            </div>
+                            <div>
+                                <strong id="hero-upcoming-reminders">0</strong>
+                                <span>Upcoming Alerts</span>
+                            </div>
+                            <div>
+                                <strong id="hero-category-count">6</strong>
+                                <span>Main Categories</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="accent-card">
+                        <p class="card-label">Best for</p>
+                        <h2>Students, job seekers, professionals, immigrants, freelancers, and founders</h2>
+                        <p>Use the records below as your main profile, verification timeline, or career memory system.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="auth" class="panel-section">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Access</p>
+                        <h2>Create an account or log in to manage your own timeline securely.</h2>
+                    </div>
+                    <p class="section-note">Every user gets separate records. One person's data does not mix with another person's data.</p>
+                </div>
+
+                <div class="auth-layout">
+                    <article class="content-card">
+                        <div class="card-top">
+                            <h3>Sign Up</h3>
+                            <span class="pill success">New Users</span>
+                        </div>
+                        <form id="signup-form" class="record-form">
+                            <div class="form-grid auth-grid">
+                                <label>
+                                    <span>Full Name</span>
+                                    <input id="signup-name" type="text" placeholder="Enter full name" required>
+                                </label>
+                                <label>
+                                    <span>Email</span>
+                                    <input id="signup-email" type="email" placeholder="name@example.com" required>
+                                </label>
+                                <label class="full-width">
+                                    <span>Password</span>
+                                    <input id="signup-password" type="password" placeholder="Create a password" required>
+                                </label>
+                            </div>
+                            <div class="form-actions">
+                                <button class="primary-btn" type="submit">Create Account</button>
+                            </div>
+                        </form>
+                    </article>
+
+                    <article class="content-card">
+                        <div class="card-top">
+                            <h3>Login</h3>
+                            <span class="pill">Existing Users</span>
+                        </div>
+                        <form id="login-form" class="record-form">
+                            <div class="form-grid auth-grid">
+                                <label>
+                                    <span>Email</span>
+                                    <input id="login-email" type="email" placeholder="name@example.com" required>
+                                </label>
+                                <label>
+                                    <span>Password</span>
+                                    <input id="login-password" type="password" placeholder="Enter your password" required>
+                                </label>
+                            </div>
+                            <div class="form-actions">
+                                <button class="primary-btn" type="submit">Login</button>
+                            </div>
+                        </form>
+                    </article>
+
+                    <article class="content-card">
+                        <div class="card-top">
+                            <h3>Verify Email</h3>
+                            <span class="pill success">Required</span>
+                        </div>
+                        <form id="verify-email-form" class="record-form">
+                            <div class="form-grid auth-grid">
+                                <label class="full-width">
+                                    <span>Verification Token</span>
+                                    <input id="verify-email-token" type="text" placeholder="Paste the verification token" required>
+                                </label>
+                            </div>
+                            <div class="form-actions">
+                                <button class="primary-btn" type="submit">Verify Email</button>
+                            </div>
+                        </form>
+                        <form id="resend-verification-form" class="record-form">
+                            <div class="form-grid auth-grid">
+                                <label class="full-width">
+                                    <span>Email</span>
+                                    <input id="resend-verification-email" type="email" placeholder="name@example.com" required>
+                                </label>
+                            </div>
+                            <div class="form-actions">
+                                <button class="ghost-btn" type="submit">Resend Verification</button>
+                            </div>
+                        </form>
+                    </article>
+
+                    <article class="content-card">
+                        <div class="card-top">
+                            <h3>Reset Password</h3>
+                            <span class="pill warning">Recovery</span>
+                        </div>
+                        <form id="forgot-password-form" class="record-form">
+                            <div class="form-grid auth-grid">
+                                <label class="full-width">
+                                    <span>Email</span>
+                                    <input id="forgot-password-email" type="email" placeholder="name@example.com" required>
+                                </label>
+                            </div>
+                            <div class="form-actions">
+                                <button class="ghost-btn" type="submit">Request Reset Token</button>
+                            </div>
+                        </form>
+                        <form id="reset-password-form" class="record-form">
+                            <div class="form-grid auth-grid">
+                                <label class="full-width">
+                                    <span>Reset Token</span>
+                                    <input id="reset-password-token" type="text" placeholder="Paste the reset token" required>
+                                </label>
+                                <label class="full-width">
+                                    <span>New Password</span>
+                                    <input id="reset-password-new" type="password" placeholder="Enter new password" required>
+                                </label>
+                            </div>
+                            <div class="form-actions">
+                                <button class="primary-btn" type="submit">Set New Password</button>
+                            </div>
+                        </form>
+                    </article>
+                </div>
+
+                <div id="auth-message" class="search-hint">Sign up or log in to access your personal workspace.</div>
+            </section>
+
+            <section id="dashboard" class="panel-section app-only hidden">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Dashboard</p>
+                        <h2>See the health of your life timeline at a glance.</h2>
+                    </div>
+                    <p class="section-note">All numbers update automatically when you add, edit, or remove records.</p>
+                </div>
+
+                <div class="stats-grid" id="stats-grid">
+                    <article class="stat-card">
+                        <span>Total Records</span>
+                        <strong id="total-records">0</strong>
+                    </article>
+                    <article class="stat-card">
+                        <span>Documents Attached</span>
+                        <strong id="total-documents">0</strong>
+                    </article>
+                    <article class="stat-card">
+                        <span>Upcoming Reminders</span>
+                        <strong id="total-reminders">0</strong>
+                    </article>
+                    <article class="stat-card">
+                        <span>Open Work Entries</span>
+                        <strong id="open-work-records">0</strong>
+                    </article>
+                </div>
+
+                <div class="dashboard-grid">
+                    <article class="content-card">
+                        <div class="card-top">
+                            <h3>Category Coverage</h3>
+                            <span class="pill">Auto Summary</span>
+                        </div>
+                        <div id="category-summary" class="summary-list"></div>
+                    </article>
+
+                    <article class="content-card">
+                        <div class="card-top">
+                            <h3>Upcoming Alerts</h3>
+                            <span class="pill warning">Reminder Engine</span>
+                        </div>
+                        <div id="reminder-list" class="stack-list"></div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="add-record" class="panel-section">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Add Records</p>
+                        <h2>Add every important event from visas to education to personal milestones.</h2>
+                    </div>
+                    <p class="section-note">One form covers everything. Use type and subtype to keep records structured.</p>
+                </div>
+
+                <div class="form-layout">
+                    <article class="content-card">
+                        <div class="card-top">
+                            <h3>Quick Types Supported</h3>
+                            <span class="pill">Full Coverage</span>
+                        </div>
+                        <div id="type-coverage" class="coverage-grid"></div>
+                    </article>
+
+                    <article class="content-card form-card">
+                        <div class="card-top">
+                            <h3 id="form-title">Create Timeline Record</h3>
+                            <span class="pill success">Saved to Your Account</span>
+                        </div>
+                        <form id="record-form" class="record-form">
+                            <input id="record-id" type="hidden">
+                            <div class="form-grid">
+                                <label>
+                                    <span>Category</span>
+                                    <select id="category" required></select>
+                                </label>
+                                <label>
+                                    <span>Type</span>
+                                    <select id="subtype" required></select>
+                                </label>
+                                <label>
+                                    <span>Title</span>
+                                    <input id="title" type="text" placeholder="Software Engineer at ABC Corp" required>
+                                </label>
+                                <label>
+                                    <span>Organization / Institution</span>
+                                    <input id="organization" type="text" placeholder="Company, university, authority, client">
+                                </label>
+                                <label>
+                                    <span>Start Date</span>
+                                    <input id="start-date" type="date" required>
+                                </label>
+                                <label>
+                                    <span>End Date</span>
+                                    <input id="end-date" type="date">
+                                </label>
+                                <label>
+                                    <span>Status</span>
+                                    <select id="status">
+                                        <option value="Completed">Completed</option>
+                                        <option value="Active">Active</option>
+                                        <option value="Planned">Planned</option>
+                                        <option value="Expired">Expired</option>
+                                    </select>
+                                </label>
+                                <label>
+                                    <span>Location</span>
+                                    <input id="location" type="text" placeholder="City, State, Country">
+                                </label>
+                                <label>
+                                    <span>Reminder Date</span>
+                                    <input id="reminder-date" type="date">
+                                </label>
+                                <label>
+                                    <span>Document Name</span>
+                                    <input id="document-name" type="text" placeholder="Offer letter, transcript, visa approval">
+                                </label>
+                                <label>
+                                    <span>Upload Document</span>
+                                    <input id="document-file" type="file" accept=".pdf,.png,.jpg,.jpeg,.txt,.doc,.docx">
+                                </label>
+                                <div id="document-status" class="full-width document-status hidden"></div>
+                                <label class="full-width">
+                                    <span>Document Link / Reference</span>
+                                    <input id="document-link" type="text" placeholder="Drive link, S3 key, file reference, or notes">
+                                </label>
+                                <label class="full-width">
+                                    <span>Tags</span>
+                                    <input id="tags" type="text" placeholder="react, renewal, transcript, promotion">
+                                </label>
+                                <label class="full-width">
+                                    <span>Description</span>
+                                    <textarea id="description" rows="4" placeholder="Describe what happened, why it matters, and which proof is attached."></textarea>
+                                </label>
+                            </div>
+
+                            <div class="form-actions">
+                                <button id="save-record-btn" class="primary-btn" type="submit">Save Record</button>
+                                <button id="cancel-edit-btn" class="ghost-btn hidden" type="button">Cancel Edit</button>
+                            </div>
+                        </form>
+                    </article>
+                </div>
+            </section>
+
+            <section id="timeline" class="panel-section app-only hidden">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Timeline</p>
+                        <h2>Search, filter, review, and manage the full life journey.</h2>
+                    </div>
+                    <p class="section-note">Use filters to review by category, visa type, date, company, or document presence.</p>
+                </div>
+
+                <div class="toolbar">
+                    <label>
+                        <span>Global Search</span>
+                        <input id="search-input" type="text" placeholder="Type anything: H-1B, AWS, Chicago, transcript, 2024, promotion, USCIS, degree">
+                    </label>
+                    <label>
+                        <span>Category Filter</span>
+                        <select id="filter-category"></select>
+                    </label>
+                    <label>
+                        <span>Status Filter</span>
+                        <select id="filter-status">
+                            <option value="All">All</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Active">Active</option>
+                            <option value="Planned">Planned</option>
+                            <option value="Expired">Expired</option>
+                        </select>
+                    </label>
+                    <label>
+                        <span>Documents</span>
+                        <select id="filter-documents">
+                            <option value="All">All</option>
+                            <option value="With Documents">With Documents</option>
+                            <option value="Without Documents">Without Documents</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div id="search-hint" class="search-hint"></div>
+
+                <div class="timeline-layout">
+                    <article class="content-card">
+                        <div class="card-top">
+                            <h3>Timeline Records</h3>
+                            <span id="timeline-count" class="pill">0 records</span>
+                        </div>
+                        <div id="timeline-list" class="timeline-list"></div>
+                    </article>
+
+                    <article class="content-card">
+                        <div class="card-top">
+                            <h3>Document Vault</h3>
+                            <span class="pill success">Linked Proof</span>
+                        </div>
+                        <div id="document-list" class="stack-list"></div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="reports" class="panel-section app-only hidden">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Reports</p>
+                        <h2>Create a clean summary for interviews, verification, immigration, or self-review.</h2>
+                    </div>
+                    <p class="section-note">This prototype builds a live text report from the records currently saved.</p>
+                </div>
+
+                <div class="report-layout">
+                    <article class="content-card">
+                        <div class="card-top">
+                            <h3>Verification Report</h3>
+                            <span class="pill warning">Live Generated</span>
+                        </div>
+                        <div id="report-summary" class="report-summary"></div>
+                        <div class="form-actions">
+                            <button id="print-report-btn" class="primary-btn" type="button">Print / Save as PDF</button>
+                        </div>
+                    </article>
+
+                    <article class="content-card">
+                        <div class="card-top">
+                            <h3>Recommended Next Features</h3>
+                            <span class="pill">Roadmap</span>
+                        </div>
+                        <ul class="roadmap-list">
+                            <li>Login and user accounts with role-based access</li>
+                            <li>Cloud file upload using AWS S3 or Firebase Storage</li>
+                            <li>Email and push reminders for expiry records</li>
+                            <li>PDF export templates for recruiters and immigration files</li>
+                            <li>AI resume builder and gap detection suggestions</li>
+                            <li>Recruiter-safe share links with expiration controls</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

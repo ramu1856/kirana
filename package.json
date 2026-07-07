@@ -1,0 +1,17 @@
+{
+  "name": "life-timeline-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Prototype personal timeline tracker with account-based record management.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "nodemailer": "^9.0.3"
+  }
+}

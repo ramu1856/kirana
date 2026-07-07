@@ -1,0 +1,50 @@
+services:
+  - type: web
+    name: life-timeline-tracker
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: DB_PATH
+        value: /opt/render/project-data/app.sqlite
+      - key: UPLOAD_DIR
+        value: /opt/render/project-data/uploads
+      - key: EMAIL_OUTBOX_DIR
+        value: /opt/render/project-data/email-outbox
+      - key: MAX_UPLOAD_BYTES
+        value: 2097152
+      - key: SESSION_MAX_AGE_SECONDS
+        value: 604800
+      - key: EMAIL_VERIFICATION_TTL_HOURS
+        value: 24
+      - key: AUTH_RATE_LIMIT_WINDOW_MS
+        value: 60000
+      - key: AUTH_RATE_LIMIT_MAX
+        value: 30
+      - key: APP_BASE_URL
+        sync: false
+      - key: EMAIL_MODE
+        sync: false
+      - key: EMAIL_FROM
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: SMTP_SECURE
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+    disks:
+      - name: life-timeline-data
+        mountPath: /opt/render/project-data
+        sizeGB: 1

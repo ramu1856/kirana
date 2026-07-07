@@ -1,0 +1,449 @@
+{
+  "users": [
+    {
+      "id": "user-1777242543817-92f5703e",
+      "fullName": "Demo User",
+      "email": "demo1777242543724@example.com",
+      "passwordHash": "929a83ffd9a14ef3743fe5022c62fb8a:883ea67b8c8941df6e84955833dda2ee68f3aa47a55079e16b7dd091d4c2054a469a5e8ba5ede395c2e1c5df382b46af2c98626c6e6dea02eba185f6bb65249d",
+      "createdAt": "2026-04-26T22:29:03.872Z",
+      "records": [
+        {
+          "id": "rec-1777242543873-349e55fa",
+          "category": "Education",
+          "subtype": "Bachelor's",
+          "title": "B.Tech in Computer Science",
+          "organization": "National Institute of Technology",
+          "startDate": "2016-06-01",
+          "endDate": "2020-05-20",
+          "status": "Completed",
+          "location": "Warangal, India",
+          "reminderDate": "",
+          "documentName": "Degree Certificate",
+          "documentLink": "Drive: degree-certificate.pdf",
+          "tags": [
+            "degree",
+            "transcript",
+            "graduation"
+          ],
+          "description": "Completed undergraduate degree with internship proof, project summary, and academic transcripts."
+        },
+        {
+          "id": "rec-1777242543873-5dbc4eb0",
+          "category": "Work",
+          "subtype": "Full-Time",
+          "title": "Software Engineer",
+          "organization": "Fintech Platform",
+          "startDate": "2020-07-01",
+          "endDate": "2022-09-15",
+          "status": "Completed",
+          "location": "Hyderabad, India",
+          "reminderDate": "",
+          "documentName": "Experience Letter",
+          "documentLink": "Drive: experience-letter.pdf",
+          "tags": [
+            "backend",
+            "promotion",
+            "node"
+          ],
+          "description": "Handled payment APIs, release automation, and internal admin tools."
+        },
+        {
+          "id": "rec-1777242543873-e6a3b187",
+          "category": "Visa",
+          "subtype": "H-1B",
+          "title": "H-1B Employment Status",
+          "organization": "USCIS / Employer Sponsor",
+          "startDate": "2023-10-01",
+          "endDate": "2026-09-30",
+          "status": "Active",
+          "location": "United States",
+          "reminderDate": "2026-08-15",
+          "documentName": "Approval Notice",
+          "documentLink": "Vault: h1b-approval-notice.pdf",
+          "tags": [
+            "visa",
+            "renewal",
+            "immigration"
+          ],
+          "description": "Tracked petition approval, validity period, and upcoming renewal timeline."
+        },
+        {
+          "id": "rec-1777242543873-845a4224",
+          "category": "Certification",
+          "subtype": "AWS",
+          "title": "AWS Solutions Architect Associate",
+          "organization": "Amazon Web Services",
+          "startDate": "2024-03-10",
+          "endDate": "2027-03-10",
+          "status": "Active",
+          "location": "Online",
+          "reminderDate": "2027-01-15",
+          "documentName": "Certificate PDF",
+          "documentLink": "Cert: aws-saa.pdf",
+          "tags": [
+            "cloud",
+            "aws",
+            "renewal"
+          ],
+          "description": "Saved certificate ID, exam date, and renewal reminder."
+        }
+      ]
+    },
+    {
+      "id": "user-1777242916024-23eeb16f",
+      "fullName": "Ramu",
+      "email": "ramuchirumamilla@gmail.com",
+      "passwordHash": "0e73528815f6923568fa5f3afaa61daa:70d515722285310f88a0c7466068d28408387ab413eaf7daa28bd8cc4d25634127f22a6b0cf4d537316a4a0aed8b1b73fbcaa4cc53a37915f0211cd0c26d6a00",
+      "createdAt": "2026-04-26T22:35:16.063Z",
+      "records": [
+        {
+          "id": "rec-1777242916063-e7a7fda9",
+          "category": "Education",
+          "subtype": "Bachelor's",
+          "title": "B.Tech in Computer Science",
+          "organization": "National Institute of Technology",
+          "startDate": "2016-06-01",
+          "endDate": "2020-05-20",
+          "status": "Completed",
+          "location": "Warangal, India",
+          "reminderDate": "",
+          "documentName": "Degree Certificate",
+          "documentLink": "Drive: degree-certificate.pdf",
+          "tags": [
+            "degree",
+            "transcript",
+            "graduation"
+          ],
+          "description": "Completed undergraduate degree with internship proof, project summary, and academic transcripts."
+        },
+        {
+          "id": "rec-1777242916063-89f5340f",
+          "category": "Work",
+          "subtype": "Full-Time",
+          "title": "Software Engineer",
+          "organization": "Fintech Platform",
+          "startDate": "2020-07-01",
+          "endDate": "2022-09-15",
+          "status": "Completed",
+          "location": "Hyderabad, India",
+          "reminderDate": "",
+          "documentName": "Experience Letter",
+          "documentLink": "Drive: experience-letter.pdf",
+          "tags": [
+            "backend",
+            "promotion",
+            "node"
+          ],
+          "description": "Handled payment APIs, release automation, and internal admin tools."
+        },
+        {
+          "id": "rec-1777242916063-61803f35",
+          "category": "Visa",
+          "subtype": "H-1B",
+          "title": "H-1B Employment Status",
+          "organization": "USCIS / Employer Sponsor",
+          "startDate": "2023-10-01",
+          "endDate": "2026-09-30",
+          "status": "Active",
+          "location": "United States",
+          "reminderDate": "2026-08-15",
+          "documentName": "Approval Notice",
+          "documentLink": "Vault: h1b-approval-notice.pdf",
+          "tags": [
+            "visa",
+            "renewal",
+            "immigration"
+          ],
+          "description": "Tracked petition approval, validity period, and upcoming renewal timeline."
+        },
+        {
+          "id": "rec-1777242916063-d1d53105",
+          "category": "Certification",
+          "subtype": "AWS",
+          "title": "AWS Solutions Architect Associate",
+          "organization": "Amazon Web Services",
+          "startDate": "2024-03-10",
+          "endDate": "2027-03-10",
+          "status": "Active",
+          "location": "Online",
+          "reminderDate": "2027-01-15",
+          "documentName": "Certificate PDF",
+          "documentLink": "Cert: aws-saa.pdf",
+          "tags": [
+            "cloud",
+            "aws",
+            "renewal"
+          ],
+          "description": "Saved certificate ID, exam date, and renewal reminder."
+        }
+      ]
+    },
+    {
+      "id": "user-1777243329290-2ac3771d",
+      "fullName": "Ramu",
+      "email": "ramuchirumamilla755@gmail.com",
+      "passwordHash": "94c098d2193e2c77cf676a80c6ad1787:f57018a54bc12d93cce290c2ca9e47316f2d80f3add223057918530d78fdb5d706a2d776f9ea5e652ff2d20a4aaafa850682944cc20aaa9c26ab5fd54c6c5aad",
+      "createdAt": "2026-04-26T22:42:09.329Z",
+      "records": [
+        {
+          "id": "rec-1777243329329-ff6ef294",
+          "category": "Education",
+          "subtype": "Bachelor's",
+          "title": "B.Tech in Computer Science",
+          "organization": "National Institute of Technology",
+          "startDate": "2016-06-01",
+          "endDate": "2020-05-20",
+          "status": "Completed",
+          "location": "Warangal, India",
+          "reminderDate": "",
+          "documentName": "Degree Certificate",
+          "documentLink": "Drive: degree-certificate.pdf",
+          "tags": [
+            "degree",
+            "transcript",
+            "graduation"
+          ],
+          "description": "Completed undergraduate degree with internship proof, project summary, and academic transcripts."
+        },
+        {
+          "id": "rec-1777243329330-5cd62c3a",
+          "category": "Work",
+          "subtype": "Full-Time",
+          "title": "Software Engineer",
+          "organization": "Fintech Platform",
+          "startDate": "2020-07-01",
+          "endDate": "2022-09-15",
+          "status": "Completed",
+          "location": "Hyderabad, India",
+          "reminderDate": "",
+          "documentName": "Experience Letter",
+          "documentLink": "Drive: experience-letter.pdf",
+          "tags": [
+            "backend",
+            "promotion",
+            "node"
+          ],
+          "description": "Handled payment APIs, release automation, and internal admin tools."
+        },
+        {
+          "id": "rec-1777243329330-df2b09f5",
+          "category": "Visa",
+          "subtype": "H-1B",
+          "title": "H-1B Employment Status",
+          "organization": "USCIS / Employer Sponsor",
+          "startDate": "2023-10-01",
+          "endDate": "2026-09-30",
+          "status": "Active",
+          "location": "United States",
+          "reminderDate": "2026-08-15",
+          "documentName": "Approval Notice",
+          "documentLink": "Vault: h1b-approval-notice.pdf",
+          "tags": [
+            "visa",
+            "renewal",
+            "immigration"
+          ],
+          "description": "Tracked petition approval, validity period, and upcoming renewal timeline."
+        },
+        {
+          "id": "rec-1777243329330-22b9eff7",
+          "category": "Certification",
+          "subtype": "AWS",
+          "title": "AWS Solutions Architect Associate",
+          "organization": "Amazon Web Services",
+          "startDate": "2024-03-10",
+          "endDate": "2027-03-10",
+          "status": "Active",
+          "location": "Online",
+          "reminderDate": "2027-01-15",
+          "documentName": "Certificate PDF",
+          "documentLink": "Cert: aws-saa.pdf",
+          "tags": [
+            "cloud",
+            "aws",
+            "renewal"
+          ],
+          "description": "Saved certificate ID, exam date, and renewal reminder."
+        }
+      ]
+    },
+    {
+      "id": "user-1783436638316-27767e45",
+      "fullName": "Test User",
+      "email": "bad-email",
+      "passwordHash": "52ff3e3fa0cb0f77a7b618006c27d4fb:0315c8648c8b16995776f6e90e9d032a719f9a7342596963f550f2ad517bc76051bf01e7d9b310953b2e84defb224daec9f3d80bd2f8c5451e323c5524732987",
+      "createdAt": "2026-07-07T15:03:58.405Z",
+      "records": [
+        {
+          "id": "rec-1783436638408-d7b05338",
+          "category": "Education",
+          "subtype": "Bachelor's",
+          "title": "B.Tech in Computer Science",
+          "organization": "National Institute of Technology",
+          "startDate": "2016-06-01",
+          "endDate": "2020-05-20",
+          "status": "Completed",
+          "location": "Warangal, India",
+          "reminderDate": "",
+          "documentName": "Degree Certificate",
+          "documentLink": "Drive: degree-certificate.pdf",
+          "tags": [
+            "degree",
+            "transcript",
+            "graduation"
+          ],
+          "description": "Completed undergraduate degree with internship proof, project summary, and academic transcripts."
+        },
+        {
+          "id": "rec-1783436638408-d5d95eb0",
+          "category": "Work",
+          "subtype": "Full-Time",
+          "title": "Software Engineer",
+          "organization": "Fintech Platform",
+          "startDate": "2020-07-01",
+          "endDate": "2022-09-15",
+          "status": "Completed",
+          "location": "Hyderabad, India",
+          "reminderDate": "",
+          "documentName": "Experience Letter",
+          "documentLink": "Drive: experience-letter.pdf",
+          "tags": [
+            "backend",
+            "promotion",
+            "node"
+          ],
+          "description": "Handled payment APIs, release automation, and internal admin tools."
+        },
+        {
+          "id": "rec-1783436638408-f0b70af0",
+          "category": "Visa",
+          "subtype": "H-1B",
+          "title": "H-1B Employment Status",
+          "organization": "USCIS / Employer Sponsor",
+          "startDate": "2023-10-01",
+          "endDate": "2026-09-30",
+          "status": "Active",
+          "location": "United States",
+          "reminderDate": "2026-08-15",
+          "documentName": "Approval Notice",
+          "documentLink": "Vault: h1b-approval-notice.pdf",
+          "tags": [
+            "visa",
+            "renewal",
+            "immigration"
+          ],
+          "description": "Tracked petition approval, validity period, and upcoming renewal timeline."
+        },
+        {
+          "id": "rec-1783436638408-3c5fdc82",
+          "category": "Certification",
+          "subtype": "AWS",
+          "title": "AWS Solutions Architect Associate",
+          "organization": "Amazon Web Services",
+          "startDate": "2024-03-10",
+          "endDate": "2027-03-10",
+          "status": "Active",
+          "location": "Online",
+          "reminderDate": "2027-01-15",
+          "documentName": "Certificate PDF",
+          "documentLink": "Cert: aws-saa.pdf",
+          "tags": [
+            "cloud",
+            "aws",
+            "renewal"
+          ],
+          "description": "Saved certificate ID, exam date, and renewal reminder."
+        }
+      ]
+    },
+    {
+      "id": "user-1783439169383-f70b5323",
+      "fullName": "Browser Test User",
+      "email": "browser-test@example.com",
+      "passwordHash": "c182f500d83ce4969f43dd2074214f9b:a6098ea7326a7b7b2a300acb581b06dcdff90631200c6dda4789b888373bcc1c29e6cea8ede73f1b1daf9e0085aff8f570541dd26b0bc9cbb9a07022ec3be052",
+      "createdAt": "2026-07-07T15:46:09.534Z",
+      "records": [
+        {
+          "id": "rec-1783439169534-d5d1a980",
+          "category": "Education",
+          "subtype": "Bachelor's",
+          "title": "B.Tech in Computer Science",
+          "organization": "National Institute of Technology",
+          "startDate": "2016-06-01",
+          "endDate": "2020-05-20",
+          "status": "Completed",
+          "location": "Warangal, India",
+          "reminderDate": "",
+          "documentName": "Degree Certificate",
+          "documentLink": "Drive: degree-certificate.pdf",
+          "tags": [
+            "degree",
+            "transcript",
+            "graduation"
+          ],
+          "description": "Completed undergraduate degree with internship proof, project summary, and academic transcripts."
+        },
+        {
+          "id": "rec-1783439169534-3b68317b",
+          "category": "Work",
+          "subtype": "Full-Time",
+          "title": "Software Engineer",
+          "organization": "Fintech Platform",
+          "startDate": "2020-07-01",
+          "endDate": "2022-09-15",
+          "status": "Completed",
+          "location": "Hyderabad, India",
+          "reminderDate": "",
+          "documentName": "Experience Letter",
+          "documentLink": "Drive: experience-letter.pdf",
+          "tags": [
+            "backend",
+            "promotion",
+            "node"
+          ],
+          "description": "Handled payment APIs, release automation, and internal admin tools."
+        },
+        {
+          "id": "rec-1783439169534-68e12730",
+          "category": "Visa",
+          "subtype": "H-1B",
+          "title": "H-1B Employment Status",
+          "organization": "USCIS / Employer Sponsor",
+          "startDate": "2023-10-01",
+          "endDate": "2026-09-30",
+          "status": "Active",
+          "location": "United States",
+          "reminderDate": "2026-08-15",
+          "documentName": "Approval Notice",
+          "documentLink": "Vault: h1b-approval-notice.pdf",
+          "tags": [
+            "visa",
+            "renewal",
+            "immigration"
+          ],
+          "description": "Tracked petition approval, validity period, and upcoming renewal timeline."
+        },
+        {
+          "id": "rec-1783439169534-1597a941",
+          "category": "Certification",
+          "subtype": "AWS",
+          "title": "AWS Solutions Architect Associate",
+          "organization": "Amazon Web Services",
+          "startDate": "2024-03-10",
+          "endDate": "2027-03-10",
+          "status": "Active",
+          "location": "Online",
+          "reminderDate": "2027-01-15",
+          "documentName": "Certificate PDF",
+          "documentLink": "Cert: aws-saa.pdf",
+          "tags": [
+            "cloud",
+            "aws",
+            "renewal"
+          ],
+          "description": "Saved certificate ID, exam date, and renewal reminder."
+        }
+      ]
+    }
+  ]
+}
