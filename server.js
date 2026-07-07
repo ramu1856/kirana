@@ -10,7 +10,7 @@ const { createRecordService } = require("./services/record-service");
 const { createEmailService } = require("./services/email-service");
 const { createUploadService } = require("./services/upload-service");
 
-const host = process.env.HOST || "127.0.0.1";
+const host = process.env.HOST || "0.0.0.0";
 const port = Number(process.env.PORT) || 4173;
 const root = __dirname;
 const dbPath = process.env.DB_PATH ? path.resolve(process.env.DB_PATH) : path.join(root, "data", "app.sqlite");
