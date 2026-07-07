@@ -33,6 +33,8 @@ const emailService = createEmailService({
         pass: process.env.SMTP_PASS || ""
     }
 });
+const emailMode = process.env.EMAIL_MODE || "dev-log";
+const canPrivatelyDeliverEmail = emailMode === "smtp";
 const uploadService = createUploadService({
     rootDir: uploadRoot,
     maxUploadBytes: Number(process.env.MAX_UPLOAD_BYTES) || 2 * 1024 * 1024
@@ -42,8 +44,8 @@ const authService = createAuthService({
     store,
     createSampleRecords: recordService.createSampleRecords,
     emailVerificationTtlHours: Number(process.env.EMAIL_VERIFICATION_TTL_HOURS) || 24,
-    exposeResetToken: process.env.NODE_ENV !== "production",
-    exposeVerificationToken: process.env.NODE_ENV !== "production",
+    exposeResetToken: process.env.NODE_ENV !== "production" || !canPrivatelyDeliverEmail,
+    exposeVerificationToken: process.env.NODE_ENV !== "production" || !canPrivatelyDeliverEmail,
     emailService,
     appBaseUrl
 });

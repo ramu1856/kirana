@@ -47,6 +47,10 @@ textarea {
     display: none !important;
 }
 
+.hidden-theory {
+    display: none !important;
+}
+
 .app-shell {
     width: min(1240px, calc(100% - 28px));
     margin: 18px auto 40px;
@@ -335,6 +339,56 @@ textarea:disabled {
 .timeline-list,
 .report-summary {
     gap: 14px;
+}
+
+.quick-steps {
+    display: grid;
+    gap: 12px;
+}
+
+.quick-step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 18px;
+    background: var(--paper-solid);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+}
+
+.quick-step strong {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    color: #fff;
+    background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.advanced-details {
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--paper-solid);
+    padding: 14px 16px;
+}
+
+.advanced-details summary {
+    cursor: pointer;
+    font-weight: 800;
+    list-style: none;
+}
+
+.advanced-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.advanced-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 16px;
 }
 
 .summary-row,

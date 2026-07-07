@@ -1,4 +1,14 @@
 const categoryOptions = {
+    Document: [
+        "ID Proof",
+        "Education Document",
+        "Job Document",
+        "Visa Document",
+        "Personal Document",
+        "Certificate",
+        "Resume",
+        "Other"
+    ],
     Education: [
         "High School",
         "Intermediate",
@@ -168,6 +178,7 @@ async function initialize() {
     renderSubtypeSelect();
     renderTypeCoverage();
     renderFilterCategories();
+    applyRecordDefaults();
     bindEvents();
     renderSearchHint(0, "");
     setAppVisibility(false);
@@ -202,14 +213,14 @@ async function hydrateSession() {
         const response = await api("/api/auth/me");
         currentUser = response.user;
         csrfToken = response.csrfToken || "";
-        setAuthMessage(`Welcome back, ${currentUser.fullName}. Your account is active.`);
+        setAuthMessage(`Welcome back, ${currentUser.fullName}. Upload or download your saved documents anytime.`);
         setAppVisibility(true);
         await fetchRecords();
     } catch (error) {
         currentUser = null;
         records = [];
         csrfToken = "";
-        setAuthMessage("Sign up or log in to access your personal workspace.");
+        setAuthMessage("Sign up or log in to upload documents and download them again later.");
         setAppVisibility(false);
         renderPublicStats();
     }
@@ -258,10 +269,10 @@ async function handleLogin(event) {
         currentUser = response.user;
         csrfToken = response.csrfToken || "";
         elements.loginForm.reset();
-        setAuthMessage(`Logged in as ${currentUser.fullName}.`);
+        setAuthMessage(`Logged in as ${currentUser.fullName}. You can now upload or download your documents.`);
         setAppVisibility(true);
         await fetchRecords();
-        location.hash = "#dashboard";
+        location.hash = "#add-record";
     } catch (error) {
         setAuthMessage(error.message, true);
     }
@@ -404,13 +415,13 @@ async function saveRecord(event) {
 
     const record = {
         id: elements.recordId.value || createId(),
-        category: elements.category.value,
-        subtype: elements.subtype.value,
+        category: elements.category.value || "Document",
+        subtype: elements.subtype.value || "Other",
         title: elements.title.value.trim(),
         organization: elements.organization.value.trim(),
-        startDate: elements.startDate.value,
+        startDate: elements.startDate.value || getTodayDateValue(),
         endDate: elements.endDate.value,
-        status: elements.status.value,
+        status: elements.status.value || "Active",
         location: elements.location.value.trim(),
         reminderDate: elements.reminderDate.value,
         documentName: elements.documentName.value.trim(),
@@ -422,13 +433,13 @@ async function saveRecord(event) {
     };
 
     try {
-        setRecordSavingState(true, "Saving record...");
+        setRecordSavingState(true, "Saving document...");
         if (elements.documentFile.files && elements.documentFile.files[0]) {
             setRecordSavingState(true, "Uploading file...");
             const uploadedDocument = await uploadSelectedDocument(elements.documentFile.files[0]);
             record.documentName = record.documentName || uploadedDocument.documentName;
             record.documentLink = uploadedDocument.documentLink;
-            setRecordSavingState(true, "Saving record...");
+            setRecordSavingState(true, "Saving document...");
         }
 
         await api("/api/records", {
@@ -436,7 +447,7 @@ async function saveRecord(event) {
             body: record
         });
         await fetchRecords();
-        setAuthMessage("Record saved to your account.");
+        setAuthMessage("Document saved to your account. Log in anytime later to download it again.");
         location.hash = "#timeline";
     } catch (error) {
         setAuthMessage(error.message, true);
@@ -450,6 +461,7 @@ function renderCategorySelect() {
     elements.category.innerHTML = categories.map(function(categoryName) {
         return `<option value="${categoryName}">${categoryName}</option>`;
     }).join("");
+    elements.category.value = "Document";
 }
 
 function renderSubtypeSelect() {
@@ -461,6 +473,10 @@ function renderSubtypeSelect() {
 }
 
 function renderTypeCoverage() {
+    if (!elements.typeCoverage) {
+        return;
+    }
+
     elements.typeCoverage.innerHTML = Object.keys(categoryOptions).map(function(categoryName) {
         return `
             <article class="coverage-chip">
@@ -483,7 +499,7 @@ function setAppVisibility(isVisible) {
         section.classList.toggle("hidden", !isVisible);
     });
     elements.userBadge.classList.toggle("hidden", !isVisible);
-    elements.loadSampleBtn.classList.toggle("hidden", !isVisible);
+    elements.loadSampleBtn.classList.add("hidden");
     elements.resetDataBtn.classList.toggle("hidden", !isVisible);
     elements.logoutBtn.classList.toggle("hidden", !isVisible);
 
@@ -494,16 +510,36 @@ function setAppVisibility(isVisible) {
     }
 }
 
+function applyRecordDefaults() {
+    if (elements.category) {
+        elements.category.value = "Document";
+    }
+    renderSubtypeSelect();
+    if (elements.subtype) {
+        elements.subtype.value = "Other";
+    }
+    if (elements.status) {
+        elements.status.value = "Active";
+    }
+    if (elements.startDate && !elements.startDate.value) {
+        elements.startDate.value = getTodayDateValue();
+    }
+}
+
 function setAuthMessage(message, isError) {
     elements.authMessage.textContent = message;
     elements.authMessage.style.color = isError ? "var(--danger)" : "";
+}
+
+function getTodayDateValue() {
+    return new Date().toISOString().slice(0, 10);
 }
 
 function setRecordSavingState(isSaving, label) {
     elements.saveRecordBtn.disabled = isSaving;
     elements.documentFile.disabled = isSaving;
     elements.cancelEditBtn.disabled = isSaving;
-    elements.saveRecordBtn.textContent = isSaving ? (label || "Saving...") : "Save Record";
+    elements.saveRecordBtn.textContent = isSaving ? (label || "Saving...") : "Save Document";
 }
 
 function renderPublicStats() {
@@ -517,10 +553,11 @@ function renderPublicStats() {
 function resetForm() {
     elements.recordForm.reset();
     elements.recordId.value = "";
-    elements.formTitle.textContent = "Create Timeline Record";
+    elements.formTitle.textContent = "Quick Document Submit";
     elements.cancelEditBtn.classList.add("hidden");
     renderCategorySelect();
     renderSubtypeSelect();
+    applyRecordDefaults();
     renderDocumentStatus();
 }
 
@@ -666,7 +703,7 @@ function renderTimeline() {
 function renderDocuments() {
     const documentRecords = records.filter(hasDocument);
     if (!documentRecords.length) {
-        elements.documentList.innerHTML = '<div class="empty-state">No documents stored yet. Add document name and reference while creating a record.</div>';
+        elements.documentList.innerHTML = '<div class="empty-state">No documents stored yet. Upload a file now and it will appear here for later download.</div>';
         return;
     }
 
@@ -685,7 +722,7 @@ function renderDocuments() {
 
 function renderSearchHint(resultCount, searchText) {
     if (!searchText) {
-        elements.searchHint.textContent = "Global search checks category, type, title, organization, location, status, tags, description, document names, document references, and dates.";
+    elements.searchHint.textContent = "Search by document name, category, file label, tags, source, or dates.";
         return;
     }
 
@@ -1028,7 +1065,7 @@ window.editRecord = function(recordId) {
     elements.documentLink.value = record.documentLink;
     elements.tags.value = (record.tags || []).join(", ");
     elements.description.value = record.description;
-    elements.formTitle.textContent = "Edit Timeline Record";
+    elements.formTitle.textContent = "Edit Saved Document";
     elements.cancelEditBtn.classList.remove("hidden");
     renderDocumentStatus(record);
     location.hash = "#add-record";

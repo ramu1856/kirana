@@ -29,10 +29,8 @@
             </a>
             <nav class="site-nav">
                 <a href="#auth">Access</a>
-                <a href="#dashboard">Dashboard</a>
-                <a href="#add-record">Add Record</a>
-                <a href="#timeline">Timeline</a>
-                <a href="#reports">Reports</a>
+                <a href="#add-record">Upload</a>
+                <a href="#timeline">My Documents</a>
             </nav>
             <div class="header-actions">
                 <div id="user-badge" class="user-badge hidden"></div>
@@ -45,30 +43,22 @@
         <main id="top">
             <section class="hero">
                 <div class="hero-copy">
-                    <p class="eyebrow">Complete life record management</p>
-                    <h1>Store your full journey in one timeline and use it whenever life asks for proof.</h1>
-                    <p class="hero-text">
-                        This multi-user version lets each person create an account and manage education, jobs,
-                        projects, certifications, visa history, reminders, and documents in one searchable place.
-                    </p>
+                    <p class="eyebrow">Personal document vault</p>
+                    <h1>Upload documents here and download them later from any device.</h1>
+                    <p class="hero-text">If your laptop or phone gets reset, log in again and download your files safely.</p>
                     <div class="hero-actions">
                         <a class="primary-btn" href="#auth">Create Account</a>
-                        <a class="ghost-btn" href="#reports">View Reports</a>
+                        <a class="ghost-btn" href="#add-record">Upload Document</a>
                     </div>
-                    <ul class="hero-points">
-                        <li>Track all visa types, education stages, jobs, projects, and personal events</li>
-                        <li>Save documents and reminders with each record</li>
-                        <li>Generate a clean verification summary instantly</li>
-                    </ul>
                 </div>
 
                 <div class="hero-panel">
                     <article class="glass-card">
-                        <p class="card-label">What this prototype includes</p>
+                        <p class="card-label">Quick overview</p>
                         <div class="mini-stats">
                             <div>
                                 <strong id="hero-total-records">0</strong>
-                                <span>Total Records</span>
+                                <span>Saved Entries</span>
                             </div>
                             <div>
                                 <strong id="hero-total-docs">0</strong>
@@ -85,9 +75,9 @@
                         </div>
                     </article>
                     <article class="accent-card">
-                        <p class="card-label">Best for</p>
-                        <h2>Students, job seekers, professionals, immigrants, freelancers, and founders</h2>
-                        <p>Use the records below as your main profile, verification timeline, or career memory system.</p>
+                        <p class="card-label">Recovery use</p>
+                        <h2>Save once here, then recover files later by logging in again.</h2>
+                        <p>No need to depend only on one phone or one laptop.</p>
                     </article>
                 </div>
             </section>
@@ -96,9 +86,9 @@
                 <div class="section-heading">
                     <div>
                         <p class="eyebrow">Access</p>
-                        <h2>Create an account or log in to manage your own timeline securely.</h2>
+                        <h2>Create account, log in, upload, and download whenever needed.</h2>
                     </div>
-                    <p class="section-note">Every user gets separate records. One person's data does not mix with another person's data.</p>
+                    <p class="section-note">This works like your own document backup place. After reset, just log in and download again.</p>
                 </div>
 
                 <div class="auth-layout">
@@ -216,13 +206,13 @@
                 <div id="auth-message" class="search-hint">Sign up or log in to access your personal workspace.</div>
             </section>
 
-            <section id="dashboard" class="panel-section app-only hidden">
+            <section id="dashboard" class="panel-section app-only hidden hidden-theory">
                 <div class="section-heading">
                     <div>
                         <p class="eyebrow">Dashboard</p>
-                        <h2>See the health of your life timeline at a glance.</h2>
+                        <h2>See your saved documents and reminders quickly.</h2>
                     </div>
-                    <p class="section-note">All numbers update automatically when you add, edit, or remove records.</p>
+                    <p class="section-note">Counts update automatically when you add or remove records.</p>
                 </div>
 
                 <div class="stats-grid" id="stats-grid">
@@ -266,95 +256,75 @@
             <section id="add-record" class="panel-section">
                 <div class="section-heading">
                     <div>
-                        <p class="eyebrow">Add Records</p>
-                        <h2>Add every important event from visas to education to personal milestones.</h2>
+                        <p class="eyebrow">Upload</p>
+                        <h2>Save a document in a few easy steps.</h2>
                     </div>
-                    <p class="section-note">One form covers everything. Use type and subtype to keep records structured.</p>
+                    <p class="section-note">Just enter document name and upload the file. Everything else is optional.</p>
                 </div>
 
                 <div class="form-layout">
                     <article class="content-card">
                         <div class="card-top">
-                            <h3>Quick Types Supported</h3>
-                            <span class="pill">Full Coverage</span>
+                            <h3>How to use</h3>
+                            <span class="pill">3 Steps</span>
                         </div>
-                        <div id="type-coverage" class="coverage-grid"></div>
+                        <div class="quick-steps">
+                            <div class="quick-step">
+                                <strong>1</strong>
+                                <span>Enter document name</span>
+                            </div>
+                            <div class="quick-step">
+                                <strong>2</strong>
+                                <span>Choose the file</span>
+                            </div>
+                            <div class="quick-step">
+                                <strong>3</strong>
+                                <span>Save the record</span>
+                            </div>
+                        </div>
+                        <div id="type-coverage" class="coverage-grid hidden"></div>
                     </article>
 
                     <article class="content-card form-card">
                         <div class="card-top">
-                            <h3 id="form-title">Create Timeline Record</h3>
-                            <span class="pill success">Saved to Your Account</span>
+                            <h3 id="form-title">Quick Document Submit</h3>
+                            <span class="pill success">Fast Upload</span>
                         </div>
                         <form id="record-form" class="record-form">
                             <input id="record-id" type="hidden">
                             <div class="form-grid">
                                 <label>
-                                    <span>Category</span>
-                                    <select id="category" required></select>
-                                </label>
-                                <label>
-                                    <span>Type</span>
-                                    <select id="subtype" required></select>
-                                </label>
-                                <label>
-                                    <span>Title</span>
-                                    <input id="title" type="text" placeholder="Software Engineer at ABC Corp" required>
-                                </label>
-                                <label>
-                                    <span>Organization / Institution</span>
-                                    <input id="organization" type="text" placeholder="Company, university, authority, client">
-                                </label>
-                                <label>
-                                    <span>Start Date</span>
-                                    <input id="start-date" type="date" required>
-                                </label>
-                                <label>
-                                    <span>End Date</span>
-                                    <input id="end-date" type="date">
-                                </label>
-                                <label>
-                                    <span>Status</span>
-                                    <select id="status">
-                                        <option value="Completed">Completed</option>
-                                        <option value="Active">Active</option>
-                                        <option value="Planned">Planned</option>
-                                        <option value="Expired">Expired</option>
-                                    </select>
-                                </label>
-                                <label>
-                                    <span>Location</span>
-                                    <input id="location" type="text" placeholder="City, State, Country">
-                                </label>
-                                <label>
-                                    <span>Reminder Date</span>
-                                    <input id="reminder-date" type="date">
-                                </label>
-                                <label>
                                     <span>Document Name</span>
-                                    <input id="document-name" type="text" placeholder="Offer letter, transcript, visa approval">
+                                    <input id="title" type="text" placeholder="Passport, Aadhaar, Resume, Offer Letter" required>
                                 </label>
                                 <label>
                                     <span>Upload Document</span>
                                     <input id="document-file" type="file" accept=".pdf,.png,.jpg,.jpeg,.txt,.doc,.docx">
                                 </label>
                                 <div id="document-status" class="full-width document-status hidden"></div>
-                                <label class="full-width">
-                                    <span>Document Link / Reference</span>
-                                    <input id="document-link" type="text" placeholder="Drive link, S3 key, file reference, or notes">
-                                </label>
-                                <label class="full-width">
-                                    <span>Tags</span>
-                                    <input id="tags" type="text" placeholder="react, renewal, transcript, promotion">
-                                </label>
-                                <label class="full-width">
-                                    <span>Description</span>
-                                    <textarea id="description" rows="4" placeholder="Describe what happened, why it matters, and which proof is attached."></textarea>
-                                </label>
+                                <div class="hidden">
+                                    <select id="category"></select>
+                                    <select id="subtype"></select>
+                                    <input id="organization" type="text">
+                                    <input id="start-date" type="date">
+                                    <input id="end-date" type="date">
+                                    <select id="status">
+                                        <option value="Completed">Completed</option>
+                                        <option value="Active">Active</option>
+                                        <option value="Planned">Planned</option>
+                                        <option value="Expired">Expired</option>
+                                    </select>
+                                    <input id="location" type="text">
+                                    <input id="reminder-date" type="date">
+                                    <input id="document-name" type="text">
+                                    <input id="document-link" type="text">
+                                    <input id="tags" type="text">
+                                    <textarea id="description" rows="4"></textarea>
+                                </div>
                             </div>
 
                             <div class="form-actions">
-                                <button id="save-record-btn" class="primary-btn" type="submit">Save Record</button>
+                                <button id="save-record-btn" class="primary-btn" type="submit">Save Document</button>
                                 <button id="cancel-edit-btn" class="ghost-btn hidden" type="button">Cancel Edit</button>
                             </div>
                         </form>
@@ -365,10 +335,10 @@
             <section id="timeline" class="panel-section app-only hidden">
                 <div class="section-heading">
                     <div>
-                        <p class="eyebrow">Timeline</p>
-                        <h2>Search, filter, review, and manage the full life journey.</h2>
+                        <p class="eyebrow">My Documents</p>
+                        <h2>Search and manage your saved files easily.</h2>
                     </div>
-                    <p class="section-note">Use filters to review by category, visa type, date, company, or document presence.</p>
+                    <p class="section-note">If your device data is lost, log in here and download your saved documents again.</p>
                 </div>
 
                 <div class="toolbar">
@@ -405,7 +375,7 @@
                 <div class="timeline-layout">
                     <article class="content-card">
                         <div class="card-top">
-                            <h3>Timeline Records</h3>
+                            <h3>Saved Documents</h3>
                             <span id="timeline-count" class="pill">0 records</span>
                         </div>
                         <div id="timeline-list" class="timeline-list"></div>
@@ -421,13 +391,13 @@
                 </div>
             </section>
 
-            <section id="reports" class="panel-section app-only hidden">
+            <section id="reports" class="panel-section app-only hidden hidden-theory">
                 <div class="section-heading">
                     <div>
                         <p class="eyebrow">Reports</p>
-                        <h2>Create a clean summary for interviews, verification, immigration, or self-review.</h2>
+                        <h2>Print a simple summary whenever needed.</h2>
                     </div>
-                    <p class="section-note">This prototype builds a live text report from the records currently saved.</p>
+                    <p class="section-note">Use this only when you need a quick export of saved records.</p>
                 </div>
 
                 <div class="report-layout">
@@ -444,16 +414,14 @@
 
                     <article class="content-card">
                         <div class="card-top">
-                            <h3>Recommended Next Features</h3>
-                            <span class="pill">Roadmap</span>
+                            <h3>Tips</h3>
+                            <span class="pill">Simple Use</span>
                         </div>
                         <ul class="roadmap-list">
-                            <li>Login and user accounts with role-based access</li>
-                            <li>Cloud file upload using AWS S3 or Firebase Storage</li>
-                            <li>Email and push reminders for expiry records</li>
-                            <li>PDF export templates for recruiters and immigration files</li>
-                            <li>AI resume builder and gap detection suggestions</li>
-                            <li>Recruiter-safe share links with expiration controls</li>
+                            <li>Save document name clearly</li>
+                            <li>Upload the latest file version</li>
+                            <li>Add expiry date for reminders</li>
+                            <li>Use tags to find files faster later</li>
                         </ul>
                     </article>
                 </div>
